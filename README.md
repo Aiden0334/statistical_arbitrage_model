@@ -60,7 +60,7 @@
 ## 4. 방법론 개요
 
 1. **Universe 선정** — Binance USDT-margined perpetual futures 수백 개 자산.
-2. **Pair filter** — 통계적으로 tradable한 pair 추출 (다단계 filter).
+2. **Pair filter** — 통계적으로 tradeable한 pair 추출 (다단계 filter).
 3. **Regime classification** — 각 pair의 spread에 regime classifier 적용.
 4. **Backtest** — Walk-forward IS + Pure OOS forward test.
 5. **Robustness validation** — Bootstrap, parameter sensitivity.
