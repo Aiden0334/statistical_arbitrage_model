@@ -1,0 +1,8 @@
+< Execution requirements > 
+
+* Version Check: Python 3.11
+
+* Packages: Pandas, NumPy, Statsmodels, Joblib, PyArrow
+
+* System Core: 16-core workstation
+
