@@ -152,8 +152,29 @@ Random pair subsampling (100회 반복, 매번 50%)에서 모든 iteration이 po
 
 7개월치 held-out forward test: 
 
+### Portfolio Performance
+
+| Metric | Value |
+|---|---|
+| Sharpe ratio (annualized) | **1.50** |
+| Maximum drawdown | **-4.48%** |
+| Calmar ratio | **2.40** |
+| Total return | +5.87% |
+| CAGR (annualized) | +10.75% |
+| Win rate | 42.6% |
+| Trade 수 | 263 |
+| 연 trade 수 (annualized) | ~450 |
+
 Positive Sharpe ratio, drawdown 감내 수준, positive Calmar ratio. Bootstrap 100회 중 최악 시나리오도 positive를 유지.
 
+| Test | Result |
+|---|---|
+| Bootstrap 5th percentile Sharpe | +0.51 (강건) |
+| Bootstrap median Sharpe | +1.19 |
+| Bootstrap 95th percentile Sharpe | +1.66 |
+| Entry threshold sensitivity (±20%) | Sharpe 범위 0.93 - 1.66 (모두 positive) |
+| Exit threshold sensitivity (±20%) | Sharpe 범위 1.50 - 1.67 (매우 안정) |
+| Positive fold (walk-forward) | 15 / 15 (100%) |
 Parameter sensitivity: entry/exit threshold ±20% 조정에도 Sharpe positive 유지.
 
 ---
