@@ -130,11 +130,11 @@ Random pair subsampling (100회 반복, 매번 50%)에서 모든 iteration이 po
 
 ### Discovery 7: Portfolio 다각화가 진짜 Hedge
 
-개별 pair 기여도 분석 결과 winner와 loser가 공존했다. 초기 반응: loser를 filter out하자.
+개별 pair 기여도 분석 결과 winner와 loser가 공존했다. 
 
 <img width="1484" height="1781" alt="06_pair_pnl" src="https://github.com/user-attachments/assets/47731594-767b-47a2-80c1-4e75d12c0d75" />
 
-깨달음: **이것이 pair trading이 작동하는 방식이다**. 각 pair가 이미 delta-neutral hedge이고, 수십 개를 함께 운영하면 statistical diversification이 생성된다. OOS winner에서 선별하려는 시도는 look-ahead bias를 도입해 diversification을 파괴한다.
+결과: **이것이 pair trading이 작동하는 방식이다**. 각 pair가 이미 delta-neutral hedge이고, 수십 개를 함께 운영하면 statistical diversification이 생성된다. OOS winner에서 선별하려는 시도는 look-ahead bias를 도입해 diversification을 파괴한다.
 
 **판정**: Portfolio를 신뢰하고, winner와 loser를 공존하게 해아 한다. 
 
