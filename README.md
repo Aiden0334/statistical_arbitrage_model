@@ -73,7 +73,7 @@
 
 ### Discovery 1: Timeframe이 결정적
 
-초기 예상: 짧은 timeframe = 더 많은 기회 = 더 나은 성능.
+초기 예상: 짧은 timeframe = 더 많은 기회 및 샘플 수집 = 더 나은 성능.
 
 **교훈**: 개인 trader에게 cost floor가 timeframe의 hard lower bound를 설정한다. 고빈도 전략은 cost 누적에 파괴된다.
 
@@ -144,7 +144,7 @@ Random pair subsampling (100회 반복, 매번 50%)에서 모든 iteration이 po
 
 여러 이론적으로 그럴듯한 개선안들이 실증 test에서 실패했다.
 
-![Rejected Improvements](docs/charts/08_rejected_improvements.png)
+<img width="1634" height="880" alt="08_rejected_improvements" src="https://github.com/user-attachments/assets/21dab019-7d03-44f0-be27-23995be97447" />
 
 ---
 
@@ -159,8 +159,6 @@ Parameter sensitivity: entry/exit threshold ±20% 조정에도 Sharpe positive �
 ---
 
 ## 7. Limitations
-
-이 프로젝트는 성공의 증명이 아니다:
 
 - **OOS 기간이 7개월뿐**. 통계적 신뢰구간이 넓다.
 - **Data universe가 최근 자산으로 편중**. Long-horizon validation 제한.
