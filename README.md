@@ -55,8 +55,6 @@
 
 **Hypothesis**: 현재 spread의 상태 (regime)를 분류할 수 있다면, mean-reverting 상태에서만 진입하는 것이 risk-adjusted return을 개선할 것이다.
 
-2번쨰 프로젝트에서 주가 지수 선물용으로 개발된 regime classifier의 아이디어를 크립토 pair spread에 이식했다.
-
 ---
 
 ## 4. 방법론 개요
@@ -77,17 +75,13 @@
 
 초기 예상: 짧은 timeframe = 더 많은 기회 = 더 나은 성능.
 
-![Timeframe Comparison](docs/charts/03_timeframe_comparison.png)
-
 **교훈**: 개인 trader에게 cost floor가 timeframe의 hard lower bound를 설정한다. 고빈도 전략은 cost 누적에 파괴된다.
 
 ---
 
 ### Discovery 2: In-Sample Sharpe는 지나치게 낙관적이었다
 
-Walk-forward backtest가 의심스러울 정도로 높은 Sharpe를 만들어냈다. 조사 결과, 대부분의 이익이 pair가 선정된 최근 기간에 집중되어 있었다.
-
-![IS vs OOS Degradation](docs/charts/07_is_oos_degradation.png)
+Walk-forward backtest가 의심스러울 정도로 높은 Sharpe를 만들어냈다. 조사 결과, 대부분의 이익이 pair가 선정된 최근 기간에 집중되어 있었다. 
 
 ---
 
@@ -95,7 +89,8 @@ Walk-forward backtest가 의심스러울 정도로 높은 Sharpe를 만들어냈
 
 원래 hold period 상한을 학술 권장 (half-life의 몇 배)에 맞춰 설정했다. 지나치게 관대했다.
 
-![Hold Period Comparison](docs/charts/04_hold_period.png)
+<img width="2084" height="741" alt="04_hold_period" src="https://github.com/user-attachments/assets/d3d12cf5-1956-42c5-939c-3ccd06c65965" />
+
 
 **교훈**: 이론적 parameter는 출발점일 뿐 최종 답이 아니다. 실증 test 필수.
 
@@ -105,7 +100,7 @@ Walk-forward backtest가 의심스러울 정도로 높은 Sharpe를 만들어냈
 
 Spread에 regime classifier를 적용했을 때, mean-reversion regime에서만 trading하는 것이 risk-adjusted return을 개선했다.
 
-![Mode Comparison](docs/charts/05_mode_comparison.png)
+<img width="1634" height="883" alt="05_mode_comparison" src="https://github.com/user-attachments/assets/15a32163-9222-4d66-ae77-9c200fb35b53" />
 
 Macro overlay 추가는 오히려 성과를 저하 시켰다 — 이미 spread regime과 중복되었기 때문.
 
@@ -117,7 +112,7 @@ Macro overlay 추가는 오히려 성과를 저하 시켰다 — 이미 spread r
 
 Random pair subsampling (100회 반복, 매번 50%)에서 모든 iteration이 positive Sharpe를 유지했다.
 
-![Bootstrap Distribution](docs/charts/02_bootstrap_distribution.png)
+<img width="1484" height="881" alt="02_bootstrap_distribution" src="https://github.com/user-attachments/assets/f9ef08b5-73d7-4469-8ecb-79404680e831" />
 
 **판정**: Alpha는 소수 pair에 집중되지 않고 분산 되어 있다.
 
@@ -129,9 +124,7 @@ Random pair subsampling (100회 반복, 매번 50%)에서 모든 iteration이 po
 
 **결과**: Sharpe가 positive에서 강하게 negative로 붕괴.
 
-**왜?** Pair trading은 *divergence* — spread가 벌어진 순간 — 에서 이익을 낸다. 그 순간 rolling cointegration statistic이 일시적으로 약해진다. Filter가 정확히 수익 순간을 차단한 것.
-
-**깊은 교훈**: Mean reversion에서는 "나쁜" 통계적 순간이 종종 entry 기회다. 단일 자산 trading의 직관이 그대로 옮겨오지 않는다.
+**진입/청산 기준은 공개하지 않음**
 
 ---
 
@@ -139,7 +132,7 @@ Random pair subsampling (100회 반복, 매번 50%)에서 모든 iteration이 po
 
 개별 pair 기여도 분석 결과 winner와 loser가 공존했다. 초기 반응: loser를 filter out하자.
 
-![Pair PnL Distribution](docs/charts/06_pair_pnl.png)
+<img width="1484" height="1781" alt="06_pair_pnl" src="https://github.com/user-attachments/assets/47731594-767b-47a2-80c1-4e75d12c0d75" />
 
 깨달음: **이것이 pair trading이 작동하는 방식이다**. 각 pair가 이미 delta-neutral hedge이고, 수십 개를 함께 운영하면 statistical diversification이 생성된다. OOS winner에서 선별하려는 시도는 look-ahead bias를 도입해 diversification을 파괴한다.
 
@@ -157,9 +150,7 @@ Random pair subsampling (100회 반복, 매번 50%)에서 모든 iteration이 po
 
 ## 6. 최종 결과 (Out-of-Sample)
 
-7개월치 held-out forward test:
-
-![Equity Curve](docs/charts/01_equity_curve.png)
+7개월치 held-out forward test: 
 
 Positive Sharpe ratio, drawdown 감내 수준, positive Calmar ratio. Bootstrap 100회 중 최악 시나리오도 positive를 유지.
 
